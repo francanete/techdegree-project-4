@@ -45,18 +45,45 @@ let quotes = [
   }
 ];
 
-console.log(quotes)
 
 
 /***
  * `getRandomQuote` function
 ***/
 
+function getRandomQuote() {
+  let randomQuoteNumber = Math.floor(Math.random() * quotes.length);
+  return quotes[randomQuoteNumber];
+}
 
 
 /***
  * `printQuote` function
 ***/
+
+
+function printQuote () {
+  let randomQuote = getRandomQuote();
+  let randomQuoteHTML = `<p class="quote"> ${randomQuote.quote} </p><p class="source"> ${randomQuote.source}`;
+    if ( randomQuote.citation ) {
+       randomQuoteHTML += `<span class="citation">${randomQuote.citation}</span>`;
+    }
+    if ( randomQuote.year ) {
+      randomQuoteHTML += `<span class="year">${randomQuote.year}</span>`;
+    }
+    randomQuoteHTML += "</p>";
+  return document.getElementById('quote-box').innerHTML = randomQuoteHTML;
+
+
+  // console.log(randomQuote);
+  // console.log(randomQuoteHTML);
+}
+
+
+
+
+
+printQuote();
 
 
 
@@ -66,3 +93,5 @@ console.log(quotes)
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+
