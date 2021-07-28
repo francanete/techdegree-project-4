@@ -75,7 +75,7 @@ function newBackground() {
 
 
 
-function printQuote() {
+window.onload = function printQuote() {
   let randomQuote = getRandomQuote();
   let randomQuoteHTML = `<p class="quote"> ${randomQuote.quote} </p><p class="source"> ${randomQuote.source}`;
     if ( randomQuote.citation ) {
